@@ -1,6 +1,7 @@
 import Home from "./pages/Home.jsx"
 import Services from "./pages/Services.jsx"
 import About from "./pages/About.jsx"
+import FAQ from "./pages/FAQ.jsx"
 import Contact from "./pages/Contact.jsx"
 
 const routes = [
@@ -20,6 +21,12 @@ const routes = [
         path: "/about",
         component: About,
         name: "Обо мне",
+        icon: "",
+    },
+    {
+        path: "/FAQ",
+        component: FAQ,
+        name: "Часто задаваемые вопросы",
         icon: "",
     },
     {

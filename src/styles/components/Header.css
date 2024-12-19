@@ -1,0 +1,86 @@
+* {
+  border: 1px solid greenyellow;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* top */
+header .header-top {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid blue;
+}
+
+header .header-top .header-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+header .header-top .section-btn {
+  display: flex;
+  align-items: center;
+}
+
+header .header-top .section-btn .header-contact-box {
+  display: flex;
+  gap: 1em;
+  margin: 1em;
+}
+
+header .header-top .section-btn .header-contact-box .header-contact-mail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+
+.header-contact-t,
+.header-contact-w,
+.header-contact-vk {
+  color: white;
+  font-size: 1.5em;
+}
+
+header .header-top .section-btn .btn-consultation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  margin: 1em;
+  padding: 10px;
+  /* width: 200px; */
+  /* height: 30px; */
+  border-radius: 50px;
+  border: 1px solid blue;
+  font-size: 1em;
+}
+/* top / bottom */
+header .header-top,
+header .header-bottom {
+  width: 80%;
+  margin: 10px 0;
+}
+/* bottom */
+/* header .header-bottom .navigation {
+
+} */
+
+header .navigation ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style: none;
+  width: 100%;
+  font-size: 1.2em;
+}
+
+header .navigation ul li .link {
+  text-decoration: none;
+  color: white;
+}
