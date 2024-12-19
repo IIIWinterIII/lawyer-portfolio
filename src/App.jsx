@@ -1,14 +1,16 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import routes from "./reutes";
+import Header from "./components/Header";
 
 function App() {
   return (
     <div className="App">
+      <Header />
       <main>
         <Routes>
-          {routes.map(({ path, component: Component }) => (
-            <Route path={path} element={Component} />
+          {routes.map(({ path, component: Component }, index) => (
+            <Route key={index} path={path} element={<Component />} />
           ))}
         </Routes>
       </main>
