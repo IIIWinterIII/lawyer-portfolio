@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/components/Header.css";
+import "../styles/components/Header.scss";
 import { Link } from "react-router-dom";
 import routes from "../reutes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,6 +17,7 @@ function Header() {
         <h1 className="header-logo">Logo</h1>
 
         <div className="section-btn">
+          {/* text-box */}
           <section className="header-contact-box">
             <a href="-" className="header-contact-mail">
               123mail.gmail.com
@@ -31,7 +32,7 @@ function Header() {
               <FontAwesomeIcon icon={faVk} />
             </a>
           </section>
-
+          {/* btn */}
           <button className="btn-consultation">
             Записаться на консультацию{" "}
           </button>
