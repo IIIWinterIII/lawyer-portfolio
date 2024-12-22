@@ -6,11 +6,21 @@ import { faComments } from "@fortawesome/free-regular-svg-icons";
 import { faThumbsUp } from "@fortawesome/free-regular-svg-icons/faThumbsUp";
 import Accordion from "../components/Accordion";
 import ContactForm from "../components/ContactForm.jsx";
+import { Link } from "react-router-dom";
 
 function FAQ() {
   return (
     <section className="faq-component">
       <div className="top-main">
+        <div className="breadcrumbs">
+          <Link to="/" className="link">
+            Главная
+          </Link>
+          <p className="slash">/</p>
+          <Link to="/FAQ" className="link">
+          Часто задаваемые вопросы
+          </Link>
+        </div>
         <h1 className="title">Часто задаваемые вопросы</h1>
         <p className="subtitle">
           Здесь вы найдёте ответы на популярные вопросы о наших услугах,
