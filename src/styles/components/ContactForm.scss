@@ -1,0 +1,177 @@
+@mixin center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @mixin center-flex-space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+// contact-block
+.home-container .contact-form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 3em 0;
+    margin-top: -60px;
+    background-color: #233048;
+    border-radius: 40px 40px 0 0;
+    position: relative;
+    z-index: 3;
+  
+    .mane {
+      width: 770px;
+      // height: 450px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      // border: 1px solid blue;
+      border-radius: 30px;
+      background-color: #4e6cdc;
+      padding: 1em;
+      color: white;
+      text-align: start;
+      // background-image: url("/../public/assets/images/13399196_5190191.svg");
+      // background-size: cover;
+      // background-position: center;
+      // z-index: 1;
+      // position: relative;
+  
+      p,
+      .title {
+        padding-bottom: 5px;
+        margin-right: 35%;
+        width: 60%;
+      }
+  
+      p {
+        font-size: 1.1em;
+      }
+  
+      .title {
+        font-size: 1.6em;
+      }
+  
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+  
+        .form-in {
+          margin: 1em 0;
+          padding: 10px;
+          background-color: rgb(113, 137, 227);
+          height: 50px;
+          border-radius: 10px;
+          color: white;
+          border: none;
+          font-size: 0.9em;
+        }
+  
+        .form-in::placeholder {
+          color: white;
+        }
+  
+        select {
+          option {
+            height: 30px;
+          }
+        }
+  
+        .form-in:focus {
+          outline: none;
+        }
+  
+        button {
+          height: 50px;
+          border-radius: 10px;
+          font-size: 1.2em;
+          color: #4e6cdc;
+          border: none;
+          transition: color 0.3s ease, background-color 0.3s ease;
+        }
+  
+        button:hover {
+          background-color: #164db2;
+          color: white;
+        }
+      }
+  
+      .contact-alternative {
+        @include center-flex-space-between;
+  
+        width: 100%;
+  
+        .all {
+          font-size: 1.7em;
+          width: 20%;
+          @include center-flex;
+  
+          a {
+            margin: 0 10px;
+            background-color: rgb(113, 137, 227);
+            border-radius: 10px;
+            width: 50px;
+            height: 50px;
+            @include center-flex;
+            transition: color 0.3s ease;
+          }
+  
+          a:first-child {
+            color: rgb(77, 255, 77);
+          }
+  
+          a:last-child {
+            color: #7ddaff;
+          }
+  
+          a:first-child:hover {
+            color: rgb(36, 189, 36);
+          }
+  
+          a:last-child:hover {
+            color: #1e8cb8;
+          }
+        }
+  
+        .call {
+          // @include center-flex;
+          display: flex;
+          // width: 40%;
+          margin: 10px 0;
+          background-color: rgb(113, 137, 227);
+          border-radius: 10px;
+  
+          .text-call {
+            font-size: 0.9em;
+            padding: 0 10px;
+            margin: 0;
+            @include center-flex;
+          }
+  
+          button {
+            width: 150px;
+            height: 40px;
+            @include center-flex-space-between;
+            color: #4e6cdc;
+            padding: 5px 20px;
+            margin: 10px;
+            border-radius: 20px;
+            border: none;
+            transition: color 0.3s ease, background-color 0.3s ease;
+  
+            .icon-p {
+              font-size: 1.5em;
+            }
+          }
+  
+          button:hover {
+            background-color: #164db2;
+            color: white;
+          }
+        }
+      }
+    }
+}  
