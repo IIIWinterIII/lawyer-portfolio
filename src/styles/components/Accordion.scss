@@ -1,50 +1,59 @@
 .accordion {
-    max-width: 600px;
-    margin: 0 auto;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-  
-    .accordion-item {
-      border-bottom: 1px solid #ddd;
-  
-      &:last-child {
-        border-bottom: none;
+  max-width: 80%;
+  margin: 0 auto;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  overflow: hidden;
+
+  .accordion-item {
+    border-bottom: 1px solid #ddd;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    button {
+      background-color: transparent;
+      width: 100%;
+      border: none;
+      outline: none;
+      padding: 15px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      transition: background 0.3s, color 0.3s;
+
+      &:hover {
+        background: #eaeaea;
       }
-  
-      button {
-        width: 100%;
-        background: #f7f7f7;
-        border: none;
-        outline: none;
-        padding: 15px;
-        text-align: left;
-        font-size: 16px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background 0.3s, color 0.3s;
-  
-        &:hover {
-          background: #eaeaea;
-          color: #007bff;
-        }
+
+      .icon {
+        transition: transform 0.3s ease, color 0.3s ease;
       }
-  
-      .answer {
-        overflow: hidden;
-        height: 0; /* Начальное состояние */
-        background: #fff;
-        padding: 0 15px;
-        font-size: 14px;
-        color: #333;
-        line-height: 1.6;
-        transition: height 0.3s ease;
-  
-        p {
-          margin: 0;
-          padding: 15px 0;
-        }
+
+      .icon.rotate {
+        transform: rotate(180deg);
+        color: blue;
+      }
+    }
+
+    .answer {
+      overflow: hidden;
+      height: 0;
+      background: #fff;
+      padding: 0 15px;
+      font-size: 1em;
+      color: #000000;
+      line-height: 1.6;
+      transition: height 0.3s ease;
+      font-family: "Gilroy", Arial, sans-serif;
+
+      p {
+        margin: 0;
+        padding: 15px 0;
       }
     }
   }
-  
+}

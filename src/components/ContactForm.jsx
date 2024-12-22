@@ -24,11 +24,15 @@ function ContactForm() {
             required
           />
           <select className="form-in" name="problem-type" required>
-            <option value="physical-legal">
+            <option className="option" value="physical-legal">
               Физическое / юридическое лицо
             </option>
-            <option value="physical">Физическое лицо</option>
-            <option value="legal">Юридическое лицо</option>
+            <option className="option" value="physical">
+              Физическое лицо
+            </option>
+            <option className="option" value="legal">
+              Юридическое лицо
+            </option>
           </select>
           <button type="submit">Связаться</button>
         </form>
