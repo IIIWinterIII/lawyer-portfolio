@@ -1,9 +1,10 @@
 import React from 'react';
+import "../styles/pages/Services.scss"
 
 function Services() {
     return (
-        <section>
-            <h1>Services</h1>
+        <section className='services-container'>
+            
         </section>
     );
 }
