@@ -1,6 +1,6 @@
-* {
-  // border: 1px solid greenyellow;
-}
+// * {
+//   border: 1px solid greenyellow;
+// }
 
 @mixin flex-center {
   display: flex;
@@ -31,7 +31,8 @@
     @include flex-column;
     align-items: center;
     padding: 3em;
-    background-color: rgba(128, 128, 128, 0.055);
+    margin: 3em 0;
+    border: 1px solid rgba(128, 128, 128, 0.41);
     border-radius: 20px;
     width: 90%;
 
@@ -88,20 +89,41 @@
 
         .btn-contact {
           width: 100%;
-          height: 30px;
+          height: 40px;
           margin: 1em 0;
           font-size: 1em;
-          border: 1px solid blue;
+          border: 1px solid rgba(128, 128, 128, 0.441);
           border-radius: 20px;
           background-color: transparent;
-          transition: color 0.3s ease, background-color 0.3s ease;
-        }
+          transition: color 0.3s ease, border-color 0.3s ease;
+          cursor: pointer;
 
-        .btn-contact:hover {
-          color: white;
-          background-color: blue;
+          span {
+            display: inline-block;
+            transition: transform 0.3s ease;
+          }
+
+          &:hover {
+            color: blue;
+            border-color: blue;
+
+            span {
+              transform: translateY(-5px);
+            }
+          }
         }
       }
+    }
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease forwards;
+  }
+
+  /* Анимация появления */
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
@@ -122,35 +144,72 @@
         margin: 1em 1em;
         padding: 10px 20px 20px;
         background-color: rgba(25, 0, 255, 0.086);
-
         border-radius: 20px;
         width: 25%;
 
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: -100%;
+          left: -100%;
+          width: 200%;
+          height: 300%;
+          background: linear-gradient(
+            120deg,
+            transparent,
+            rgb(255, 255, 255),
+            transparent
+          );
+          transform: rotate(45deg);
+          transition: transform 0.5s ease, opacity 0.5s ease;
+          opacity: 0;
+        }
+
+        &:hover::before {
+          transform: rotate(45deg) translateX(150%);
+          animation: shine 0.7s ease forwards;
+
+          opacity: 1;
+        }
+
+        @keyframes shine {
+          0% {
+            transform: rotate(45deg) translateX(-100%);
+            opacity: 0;
+          }
+          50% {
+            opacity: 1;
+          }
+          100% {
+            transform: rotate(45deg) translateX(150%);
+            opacity: 0;
+          }
+        }
 
         h2 {
           margin-bottom: 10px;
 
           .icon {
             padding-right: 10px;
+            color: blue;
           }
         }
       }
-
-      //   li {
-      //     margin: 1em;
-      //     padding: 10px 10px 20px;
-      //     border-bottom: 1px solid blue;
-      //     border-radius: 0 0 10px 10px;
-
-      //     h2 {
-      //       margin-bottom: 10px;
-
-      //       .icon {
-      //         padding-right: 10px;
-      //       }
-      //     }
-      //   }
     }
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease forwards;
   }
 
+  /* Анимация появления */
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }

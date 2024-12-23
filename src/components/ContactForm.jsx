@@ -7,6 +7,7 @@ import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 function ContactForm() {
   return (
     <div className="contact-form">
+      <h1>Заполните форму и получите консультацию</h1>
       <div className="mane">
         <h2 className="title">Получите консультацию</h2>
         <p>Оставьте свои данные, и мы свяжемся с вами в течение 15 минут</p>

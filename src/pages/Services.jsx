@@ -36,7 +36,8 @@ function Services() {
               Помогу решить любые правовые вопросы. Оставьте заявку для
               консультации.
             </p>
-            <button className="btn-contact">Оставить заявку</button>
+            <button className="btn-contact">
+              <span>Оставить заявку</span></button>
           </div>
         </div>
       </div>

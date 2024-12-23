@@ -4,6 +4,12 @@
   align-items: center;
 }
 
+@mixin center-column-flex {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 @mixin center-flex-space-between {
   display: flex;
   justify-content: space-between;
@@ -11,29 +17,25 @@
 }
 // contact-block
 .contact-form {
-  display: flex;
-  justify-content: center;
+  @include center-column-flex;
   width: 100%;
-  padding: 3em 0;
+  padding: 1em 0;
   border-radius: 40px 40px 0 0;
+
+  h1 {
+    margin: 0.5em 0;
+    font-size: 2em;
+  }
 
   .mane {
     width: 770px;
     // height: 450px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    // border: 1px solid blue;
+    @include center-column-flex;
     border-radius: 30px;
     background-color: #4e6cdc;
     padding: 1em;
     color: white;
     text-align: start;
-    // background-image: url("/../public/assets/images/13399196_5190191.svg");
-    // background-size: cover;
-    // background-position: center;
-    // z-index: 1;
-    // position: relative;
 
     p,
     .title {
@@ -73,13 +75,12 @@
       select {
         cursor: pointer;
 
-      
         .option {
           padding: 8px;
           font-size: 16px;
           cursor: pointer;
         }
-        
+
         .option:checked {
           background-color: #3f63f6ae;
         }
@@ -158,14 +159,14 @@
         }
 
         button {
+          @include center-flex-space-between;
           width: 150px;
           height: 35px;
-          @include center-flex-space-between;
-          color: #4e6cdc;
           padding: 5px 20px;
           margin: 10px;
-          border-radius: 20px;
+          color: #4e6cdc;
           border: none;
+          border-radius: 20px;
           transition: color 0.3s ease, background-color 0.3s ease;
           cursor: pointer;
 
