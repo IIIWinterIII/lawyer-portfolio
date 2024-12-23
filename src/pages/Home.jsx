@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/pages/Home.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,6 +13,29 @@ import ContactForm from "../components/ContactForm";
 import ServicesBox from "../components/ServicesBox";
 
 function Home() {
+  useEffect(() => {
+    const elements = document.querySelectorAll(".scroll-element");
+  
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          entry.target.classList.remove("hidden");
+          observer.unobserve(entry.target);
+        } else {
+          entry.target.classList.add("hidden");
+          entry.target.classList.remove("visible");
+        }
+      });
+    }, { threshold: 0.1 });
+  
+    elements.forEach((el) => observer.observe(el));
+  
+    return () => {
+      elements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
+  
   return (
     <section className="home-container">
       <div className="hero">
@@ -56,28 +79,28 @@ function Home() {
       {/* text recomendation */}
       <div className="info-with-image">
         <div className="text-block">
-          <h1>
+          <h1 className="hidden scroll-element">
             Юридическая поддержка – залог успешного решения ваших вопросов и
             избежания неприятностей.
           </h1>
-          <p>
+          <p className="hidden scroll-element">
             Правовые нормы постоянно обновляются, а судебная практика нередко
             бывает противоречивой. Без специального образования разобраться в
             этих нюансах сложно, поэтому помощь квалифицированного юриста
             становится необходимой при возникновении правовых вопросов.
           </p>
-          <p>
+          <p className="hidden scroll-element">
             Наша компания – это команда опытных специалистов, готовых оказать
             вам поддержку в таких областях права, как гражданское, семейное,
             трудовое, наследственное и жилищное. Мы понимаем, что каждая
             ситуация уникальна, поэтому разрабатываем индивидуальный план
             действий, четко определяя, какие услуги вам понадобятся.
           </p>
-          <p>
+          <p className="hidden scroll-element">
             Мы тщательно анализируем вашу ситуацию, предлагаем оптимальные
             решения и защищаем ваши права и интересы.
           </p>
-          <section>
+          <section className="hidden scroll-element">
             <p>Обратившись к нам, вы получите:</p>
             <ul>
               <li>Компетентную юридическую консультацию.</li>
@@ -86,7 +109,7 @@ function Home() {
               <li>Контроль за выполнением судебных решений.</li>
             </ul>
           </section>
-          <p>
+          <p className="hidden scroll-element">
             Не оставляйте свои вопросы без решения. Доверьтесь нам, и мы поможем
             вам эффективно справиться с любой правовой задачей.
           </p>
@@ -108,11 +131,13 @@ function Home() {
             услуги
           </p>
           <Link to="/services" className="a-more-ser">
-            Все услуги{" "}
-            <FontAwesomeIcon
-              icon={faAngleDoubleRight}
-              className="arrows-icon"
-            />
+            <span>
+              Все услуги{" "}
+              <FontAwesomeIcon
+                icon={faAngleDoubleRight}
+                className="arrows-icon"
+              />
+            </span>
           </Link>
         </div>
         <ServicesBox />
