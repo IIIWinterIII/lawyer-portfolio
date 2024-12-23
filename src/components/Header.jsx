@@ -8,6 +8,7 @@ import {
   faWhatsapp,
   faVk,
 } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
   return (
@@ -19,22 +20,23 @@ function Header() {
         <div className="section-btn">
           {/* text-box */}
           <section className="header-contact-box">
-            <a href="-" className="header-contact-mail">
-              123mail.gmail.com
+            <a href="mailto:123mail.gmail.com" className="header-contact-mail">
+              <FontAwesomeIcon className="mail-icon" icon={faEnvelope} />
+              <span className="email-text">123mail.gmail.com</span>
             </a>
             <a href="-" className="header-contact-t">
-              <FontAwesomeIcon icon={faTelegram} />
+              <FontAwesomeIcon icon={faTelegram} className="icon" />
             </a>
             <a href="-" className="header-contact-w">
-              <FontAwesomeIcon icon={faWhatsapp} />
+              <FontAwesomeIcon icon={faWhatsapp} className="icon" />
             </a>
             <a href="-" className="header-contact-vk">
-              <FontAwesomeIcon icon={faVk} />
+              <FontAwesomeIcon icon={faVk} className="icon" />
             </a>
           </section>
           {/* btn */}
           <button className="btn-consultation">
-            Записаться на консультацию{" "}
+            <span>Записаться на консультацию</span>
           </button>
         </div>
       </div>
@@ -42,10 +44,10 @@ function Header() {
       <div className="header-bottom">
         <nav className="navigation">
           <ul>
-            {routes.map(({ path, component: Component, name }, index) => (
+            {routes.map(({ path, name }, index) => (
               <li key={index}>
-                <Link to={path} component={<Component />} className="link">
-                  {name}
+                <Link to={path} className="link">
+                  <span>{name}</span>
                 </Link>
               </li>
             ))}

@@ -1,97 +1,217 @@
+* {
+  // border: 1px solid greenyellow;
+}
 
-
-header {
+@mixin flex-column-center {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-height: 130px;
+}
+
+@mixin flex-center-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  @include flex-column-center;
   padding-bottom: 5px;
-  background-color: rgba(128, 128, 128, 0.742);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color: white;
-}
-/* top */
-header .header-top {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid white;
-}
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  color: black;
 
-header .header-top .header-logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px;
-  padding-left: 20px;
-}
+  /* top */
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid rgba(87, 87, 87, 0.177);
+    height: 100px;
 
-header .header-top .section-btn {
-  display: flex;
-  align-items: center;
-}
+    .header-logo {
+      @include flex-center-center;
+      margin: 10px;
+      padding-left: 20px;
+      font-family: monospace;
+    }
 
-header .header-top .section-btn .header-contact-box {
-  display: flex;
-  gap: 1em;
-  margin: 0.5em;
-}
+    .section-btn {
+      display: flex;
+      align-items: center;
 
-header .header-top .section-btn .header-contact-box .header-contact-mail {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  color: white;
-  font-size: 1em;
-}
+      .header-contact-box {
+        display: flex;
+        gap: 1em;
+        margin: 0.5em;
 
-.header-contact-t,
-.header-contact-w,
-.header-contact-vk {
-  color: white;
-  font-size: 1.5em;
-}
+        .header-contact-mail {
+          position: relative;
+          @include flex-center-center;
+          width: 50px;
+          height: 50px;
+          border-radius: 10px;
+          text-decoration: none;
+          border: 1px solid rgba(128, 128, 128, 0.46);
+          color: blue;
+          font-size: 1em;
+          font-family: "Open Sans", Sans-serif;
+          transition: color 0.3s ease, border 0.3s ease, width 0.3s ease;
 
-header .header-top .section-btn .btn-consultation {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-  margin: 0.1em 1em 0 0;
-  padding: 5px 10px;
-  /* width: 200px; */
-  /* height: 30px; */
-  border-radius: 50px;
-  border: 1px solid white;
-  color: white;
-  font-size: 1em;
-}
-/* top / bottom */
-header .header-top,
-header .header-bottom {
-  width: 70%;
-  margin: 2px 0;
-}
-/* bottom */
-/* header .header-bottom .navigation {
-} */
+          overflow: hidden;
+          // padding: 0 10px;
 
-header .navigation ul {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  list-style: none;
-  width: 100%;
-  font-size: 1em;
-}
+          .mail-icon {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+          }
 
-header .navigation ul li {
-  padding: 5px 0;
-}
+          .email-text {
+            opacity: 0;
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            right: 0;
+            transition: opacity 0.3s ease, bottom 0.3s ease;
+            text-align: center;
+            padding: 5px 0;
+            font-size: 0.9em;
+          }
+        }
 
-header .navigation ul li .link {
-  text-decoration: none;
-  color: white;
-  padding: 5px;
+        .header-contact-mail:hover {
+          border-color: blue;
+          width: 160px;
+        }
+
+        .header-contact-mail:hover .mail-icon {
+          transform: translateY(-10px);
+        }
+
+        .header-contact-mail:hover .email-text {
+          opacity: 1;
+          bottom: 0;
+        }
+
+        .header-contact-t,
+        .header-contact-w,
+        .header-contact-vk {
+          @include flex-center-center;
+          border: 1px solid rgba(128, 128, 128, 0.46);
+          border-radius: 10px;
+          width: 50px;
+          height: 50px;
+          font-size: 1.5em;
+          transition: color 0.3s ease, border-color 0.3s ease;
+
+          .icon {
+            padding: 14px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+          }
+        }
+
+        .header-contact-w {
+          color: #075e54;
+        }
+
+        .header-contact-t {
+          color: rgb(36, 161, 221);
+        }
+
+        .header-contact-vk {
+          color: rgb(0, 81, 255);
+        }
+
+        .header-contact-t:hover,
+        .header-contact-w:hover,
+        .header-contact-vk:hover {
+          border-color: rgb(2, 84, 2);
+
+          .icon:hover {
+            transform: translateY(-5px);
+          }
+        }
+      }
+
+      .btn-consultation {
+        @include flex-center-center;
+
+        background-color: transparent;
+        margin: 0.1em 1em 0 0;
+        width: 250px;
+        height: 50px;
+        font-family: "Open Sans", Sans-serif;
+        border-radius: 50px;
+        border: 1px solid rgba(128, 128, 128, 0.46);
+        color: black;
+        font-size: 1em;
+        cursor: pointer;
+
+        span {
+          @include flex-center-center;
+          border-radius: 50px;
+
+          transition: transform 0.3s ease;
+          width: 250px;
+          height: 50px;
+        }
+
+        span:hover {
+          transform: translateY(-5px);
+        }
+      }
+
+      .btn-consultation:hover {
+        border-color: rgb(2, 84, 2);
+        color: blue;
+      }
+    }
+  }
+
+  /* top / bottom */
+  .header-top,
+  .header-bottom {
+    width: 80%;
+    margin: 5px 0;
+  }
+  // bottom
+  .header-bottom {
+    .navigation {
+      ul {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        list-style: none;
+        font-size: 1em;
+    
+        li {
+          position: relative;
+          padding: 5px 10px;
+          border-radius: 5px;
+          transition: background-color 0.3s ease;
+    
+          &:hover {
+            background-color: rgba(128, 128, 128, 0.127); 
+          }
+    
+          .link {
+            text-decoration: none;
+            color: black;
+            font-family: "Open Sans", Sans-serif;
+    
+            span {
+              display: inline-block;
+              transition: transform 0.3s ease, color 0.3s ease;
+            }
+          }
+    
+          &:hover .link span {
+            transform: translateY(-5px);
+            color: blue;
+          }
+        }
+      }
+    }
+    
+  }
 }
