@@ -11,16 +11,16 @@ import { Link } from "react-router-dom";
 function FAQ() {
   return (
     <section className="faq-component">
-      <div className="top-main">
-        <div className="breadcrumbs">
-          <Link to="/" className="link">
-            Главная
-          </Link>
-          <p className="slash">/</p>
-          <Link to="/FAQ" className="link">
+      <div className="breadcrumbs">
+        <Link to="/" className="link">
+          Главная
+        </Link>
+        <p className="slash">/</p>
+        <Link to="/FAQ" className="link">
           Часто задаваемые вопросы
-          </Link>
-        </div>
+        </Link>
+      </div>
+      <div className="top-main">
         <h1 className="title">Часто задаваемые вопросы</h1>
         <p className="subtitle">
           Здесь вы найдёте ответы на популярные вопросы о наших услугах,

@@ -14,16 +14,16 @@ import ContactForm from "../components/ContactForm";
 function Services() {
   return (
     <section className="services-container">
+      <div className="breadcrumbs">
+        <Link to="/" className="link">
+          Главная
+        </Link>
+        <p className="slash">/</p>
+        <Link to="/services" className="link">
+          Услуги
+        </Link>
+      </div>
       <div className="hero-serv">
-        <div className="breadcrumbs">
-          <Link to="/" className="link">
-            Главная
-          </Link>
-          <p className="slash">/</p>
-          <Link to="/services" className="link">
-            Услуги
-          </Link>
-        </div>
         <div className="body-hero">
           <div className="text-hero">
             <h1>Услуги юриста</h1>

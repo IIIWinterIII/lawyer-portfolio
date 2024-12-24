@@ -27,6 +27,29 @@
   position: relative;
   top: 150px;
 
+  // хлебные крошки
+  .breadcrumbs {
+    display: flex;
+    width: 100%;
+    margin: 1em 0 0;
+    padding: 10px 0 3em 10em;
+
+    .link {
+      text-decoration: none;
+
+      &:hover {
+        color: black;
+      }
+    }
+
+    .slash,
+    .link {
+      color: gray;
+      font-size: 0.9em;
+      padding: 0 1px;
+    }
+  }
+
   .top-main {
     @include flex-column;
     width: 90%;
@@ -34,26 +57,9 @@
     background-color: rgba(128, 128, 128, 0.074);
     border-radius: 30px;
 
-    // хлебные крошки
-    .breadcrumbs {
-      display: flex;
-      width: 90%;
-      margin: -1em 0 1em;
-
-      .link {
-        text-decoration: none;
-      }
-
-      .slash,
-      .link {
-        color: gray;
-        font-size: 0.9em;
-        padding: 0 1px;
-      }
-    }
-
     .title {
       padding: 10px 5px;
+      font-size: 2.5em;
     }
 
     .subtitle {
