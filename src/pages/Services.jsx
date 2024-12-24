@@ -9,6 +9,7 @@ import {
   faShieldAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import ServicesBox from "../components/ServicesBox.jsx";
+import ContactForm from "../components/ContactForm";
 
 function Services() {
   return (
@@ -37,7 +38,8 @@ function Services() {
               консультации.
             </p>
             <button className="btn-contact">
-              <span>Оставить заявку</span></button>
+              <span>Оставить заявку</span>
+            </button>
           </div>
         </div>
       </div>
@@ -92,6 +94,10 @@ function Services() {
       {/* more services */}
 
       <ServicesBox />
+
+      <div className="contact-me-form">
+        <ContactForm />
+      </div>
     </section>
   );
 }

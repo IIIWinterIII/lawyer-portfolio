@@ -80,13 +80,6 @@ function FAQ() {
       </div>
 
       <div className="contact-bottom">
-        <div className="title-h1">
-          <h1>Заполните форму, и я помогу вам решить вашу проблему</h1>
-          <p>
-            Оставьте заявку, и я лично свяжусь с вами для консультации по вашему
-            вопросу.
-          </p>
-        </div>
         <ContactForm />
       </div>
     </section>
