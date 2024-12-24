@@ -81,6 +81,17 @@
       color: white;
       background-color: #4e6cdc;
     }
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease forwards;
+  }
+
+  /* Анимация появления */
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .faq-section {
@@ -144,6 +155,17 @@
           padding: 5px 0;
         }
       }
+    }
+   opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease forwards;
+  }
+
+  /* Анимация появления */
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 

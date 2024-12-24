@@ -183,6 +183,46 @@ header {
         justify-content: space-evenly;
         list-style: none;
         font-size: 1em;
+
+        .nav-item {
+          position: relative;
+
+
+        .dropdown {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          background-color: white;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          padding: 0;
+          margin: 0;
+          list-style: none;
+          z-index: 10;
+        }
+
+
+
+        
+      }
+        
+        .nav-item:hover .dropdown {
+          display: block;
+        }
+        
+        .nav-item .dropdown li {
+          padding: 10px 15px;
+        }
+        
+        .nav-item .dropdown li a {
+          text-decoration: none;
+          color: black;
+        }
+        
+        .nav-item .dropdown li a:hover {
+          background-color: #f0f0f0;
+        }
+        
     
         li {
           position: relative;
