@@ -1,0 +1,38 @@
+.scroll-to-top {
+  position: fixed;
+  bottom: 50px;
+  left: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  color: blueviolet;
+  border: 1px solid blueviolet;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  visibility: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.scroll-to-top.visible {
+  z-index: 1000;
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+
+  .icon-top-btn {
+    transition: transform 0.3s ease;
+  }
+}
+
+.scroll-to-top:hover {
+  .icon-top-btn {
+    transform: translateY(-5px);
+  }
+}
