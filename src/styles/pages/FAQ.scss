@@ -26,6 +26,8 @@
   color: black;
   position: relative;
   top: 150px;
+  margin-bottom: 10em;
+
 
   // хлебные крошки
   .breadcrumbs {
@@ -184,12 +186,11 @@
     }
   }
 
-  .contact-bottom {
-    width: 100%;
-    background-color: #3a64fda2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 30px 30px 0 0;
-  }
+  // .contact-bottom {
+  //   width: 100%;
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: center;
+  //   border-radius: 30px 30px 0 0;
+  // }
 }

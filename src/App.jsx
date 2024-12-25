@@ -18,14 +18,6 @@ function App() {
           {routes.map(({ path, component: Component }, index) => (
             <Route key={index} path={path} element={<Component />} />
           ))}
-          {/* <Route path="/" element={<h1>Главная</h1>} />
-          <Route path="/services" element={<h1>Услуги</h1>} />
-          <Route
-            path="/services/web-development"
-            element={<h1>Разработка сайтов</h1>}
-          />
-          <Route path="/services/seo" element={<h1>SEO</h1>} />
-          <Route path="/contacts" element={<h1>Контакты</h1>} /> */}
         </Routes>
         <ScrollToTopButton />
       </main>

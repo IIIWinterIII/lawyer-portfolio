@@ -3,15 +3,14 @@ import "../styles/components/Header.scss";
 import { Link } from "react-router-dom";
 import routes from "../reutes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTelegram, faWhatsapp, faVk } from "@fortawesome/free-brands-svg-icons";
+import {
+  faTelegram,
+  faWhatsapp,
+  faVk,
+} from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
-  const [activeDropdown, setActiveDropdown] = useState(null);
-
-  const handleMouseEnter = (index) => setActiveDropdown(index);
-  const handleMouseLeave = () => setActiveDropdown(null);
-
   return (
     <header>
       {/* top */}
@@ -45,25 +44,11 @@ function Header() {
       <div className="header-bottom">
         <nav className="navigation">
           <ul>
-            {routes.map(({ path, name, subItems }, index) => (
-              <li
-                key={index}
-                className="nav-item"
-                onMouseEnter={() => handleMouseEnter(index)}
-                onMouseLeave={handleMouseLeave}
-              >
+            {routes.map(({ path, name }, index) => (
+              <li key={index}>
                 <Link to={path} className="link">
                   <span>{name}</span>
                 </Link>
-                {subItems && activeDropdown === index && (
-                  <ul className="dropdown">
-                    {subItems.map(({ path, name }) => (
-                      <li key={path}>
-                        <Link to={path}>{name}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
               </li>
             ))}
           </ul>

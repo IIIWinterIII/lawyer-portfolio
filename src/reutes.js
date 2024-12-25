@@ -16,10 +16,6 @@ const routes = [
     component: Services,
     name: "Услуги",
     icon: "",
-    subItems: [
-      { path: "/services/web-development", name: "Суды" },
-      { path: "/services/seo", name: "Состовление документов" },
-    ],
   },
   {
     path: "/about",
