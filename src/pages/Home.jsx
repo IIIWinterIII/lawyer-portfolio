@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
+import useScrollObserver from "../hooks/useScrollObserver.js";
 import { Link } from "react-router-dom";
 import "../styles/pages/Home.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,29 +14,8 @@ import ContactForm from "../components/ContactForm";
 import ServicesBox from "../components/ServicesBox";
 
 function Home() {
-  useEffect(() => {
-    const elements = document.querySelectorAll(".scroll-element");
-  
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          entry.target.classList.remove("hidden");
-          observer.unobserve(entry.target);
-        } else {
-          entry.target.classList.add("hidden");
-          entry.target.classList.remove("visible");
-        }
-      });
-    }, { threshold: 0.1 });
-  
-    elements.forEach((el) => observer.observe(el));
-  
-    return () => {
-      elements.forEach((el) => observer.unobserve(el));
-    };
-  }, []);
-  
+  useScrollObserver();
+
   return (
     <section className="home-container">
       <div className="hero">

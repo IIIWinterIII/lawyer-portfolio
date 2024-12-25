@@ -25,6 +25,7 @@
   h1 {
     margin: 0.5em 0;
     font-size: 2em;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
   }
 
   .mane {
@@ -181,5 +182,15 @@
         }
       }
     }
+  }
+
+  .hidden {
+    opacity: 0; /* Элемент невидим */
+    transform: translateY(100px); /* Сдвинут вниз */
+  }
+
+  .visible {
+    opacity: 1; /* Элемент видим */
+    transform: translateY(0); /* На месте */
   }
 }

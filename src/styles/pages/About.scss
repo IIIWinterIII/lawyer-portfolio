@@ -208,6 +208,8 @@
             margin: 1em;
             padding: 10px;
             border-radius: 10px;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
 
             .icon {
               color: blue;
@@ -234,5 +236,15 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  .hidden {
+    opacity: 0; /* Элемент невидим */
+    transform: translateY(100px); /* Сдвинут вниз */
+  }
+
+  .visible {
+    opacity: 1; /* Элемент видим */
+    transform: translateY(0); /* На месте */
   }
 }

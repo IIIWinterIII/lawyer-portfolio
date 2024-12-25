@@ -1,4 +1,6 @@
 import React from "react";
+import useScrollObserver from "../hooks/useScrollObserver.js";
+
 import "../styles/pages/About.scss";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,6 +17,8 @@ import {
 import miniLegalServices from "../components/miniLegalServices.js";
 
 const About = () => {
+  useScrollObserver();
+
   return (
     <section className="about-section">
       <div className="breadcrumbs">
@@ -96,7 +100,7 @@ const About = () => {
             <h2>Основные специализации</h2>
             <div className="box-contsienr">
               {miniLegalServices.map(({ icon, item }) => (
-                <div className="box">
+                <div className="box hidden scroll-element">
                   <FontAwesomeIcon icon={icon} className="icon" />
                   <p className="text-box">{item}</p>
                 </div>

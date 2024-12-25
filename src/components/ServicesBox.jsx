@@ -1,4 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
+import useScrollObserver from "../hooks/useScrollObserver.js";
+
 import "../styles/components/ServicesBox.scss";
 import legalServices from "./legalServices";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,31 +9,7 @@ function ServicesBox() {
   const servicesForCitizens = legalServices["Услуги для граждан"];
   const servicesForBusiness = legalServices["Услуги для бизнеса"];
 
-  useEffect(() => {
-    const elements = document.querySelectorAll(".scroll-element");
-
-    const observer = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            entry.target.classList.remove("hidden");
-            observer.unobserve(entry.target);
-          } else {
-            entry.target.classList.add("hidden");
-            entry.target.classList.remove("visible");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    elements.forEach((el) => observer.observe(el));
-
-    return () => {
-      elements.forEach((el) => observer.unobserve(el));
-    };
-  }, []);
+  useScrollObserver();
 
   return (
     <div className="container-box">
@@ -46,7 +24,9 @@ function ServicesBox() {
               </h3>
               <ul>
                 {item[1].services.map((services, subindex) => (
-                  <li className="hidden scroll-element" key={subindex}>{services}</li>
+                  <li className="hidden scroll-element" key={subindex}>
+                    {services}
+                  </li>
                 ))}
               </ul>
             </div>
@@ -65,7 +45,9 @@ function ServicesBox() {
               </h3>
               <ul>
                 {item[1].services.map((services, subindex) => (
-                  <li className="hidden scroll-element" key={subindex}>{services}</li>
+                  <li className="hidden scroll-element" key={subindex}>
+                    {services}
+                  </li>
                 ))}
               </ul>
             </div>

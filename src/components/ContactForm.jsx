@@ -1,13 +1,17 @@
 import React from "react";
+import useScrollObserver from "../hooks/useScrollObserver.js";
+
 import "../styles/components/ContactForm.scss";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane, faPhoneFlip } from "@fortawesome/free-solid-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 function ContactForm() {
+  useScrollObserver();
   return (
     <div className="contact-form">
-      <h1>Заполните форму и получите консультацию</h1>
+      <h1 className="hidden  scroll-element">Заполните форму и получите консультацию</h1>
       <div className="mane">
         <h2 className="title">Получите консультацию</h2>
         <p>Оставьте свои данные, и мы свяжемся с вами в течение 15 минут</p>
