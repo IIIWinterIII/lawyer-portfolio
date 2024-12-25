@@ -2,7 +2,7 @@
   "name": "lawyer-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://iiiwinteriii.github.io/lawyer-portfolio/",
+  "homepage": "https://iiiwinteriii.github.io/lawyer-portfolio",
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/free-regular-svg-icons": "^6.7.2",
@@ -41,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.2.0"
   }
 }
