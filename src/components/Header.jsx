@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styles/components/Header.scss";
 import { Link } from "react-router-dom";
 import routes from "../reutes";
@@ -8,7 +8,7 @@ import {
   faWhatsapp,
   faVk,
 } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
   return (
@@ -20,6 +20,10 @@ function Header() {
         <div className="section-btn">
           {/* text-box */}
           <section className="header-contact-box">
+            <a href="tel:+71234567890" className="header-contact-mail">
+              <FontAwesomeIcon className="tel-icon" icon={faPhone} />
+              <span className="email-text">+71234567890</span>
+            </a>
             <a href="mailto:123mail.gmail.com" className="header-contact-mail">
               <FontAwesomeIcon className="mail-icon" icon={faEnvelope} />
               <span className="email-text">123mail.gmail.com</span>

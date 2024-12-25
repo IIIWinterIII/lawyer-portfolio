@@ -116,7 +116,7 @@ function Home() {
         </div>
         <div className="img-block">
           <img
-            src="/assets/images/bearded-man-suit-posing-with-crossed-arms.jpg"
+            src="./assets/images/bearded-man-suit-posing-with-crossed-arms.jpg"
             alt="men-in-black"
             className="men-img"
           />

@@ -60,9 +60,10 @@ header {
           overflow: hidden;
           // padding: 0 10px;
 
-          .mail-icon {
+          .mail-icon,
+          .tel-icon {
             font-size: 20px;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, font-size 0.3s ease;
           }
 
           .email-text {
@@ -83,8 +84,10 @@ header {
           width: 160px;
         }
 
-        .header-contact-mail:hover .mail-icon {
+        .header-contact-mail:hover .mail-icon,
+        .header-contact-mail:hover .tel-icon {
           transform: translateY(-10px);
+          font-size: 15px;
         }
 
         .header-contact-mail:hover .email-text {
