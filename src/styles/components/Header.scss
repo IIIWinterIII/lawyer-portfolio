@@ -188,24 +188,6 @@ header {
         font-size: 1em;
 
         li {
-          padding: 10px 15px;
-
-          a {
-            text-decoration: none;
-            color: black;
-            transition: color 0.3s ease;
-          }
-
-          &:hover a {
-            color: blue;
-          }
-
-          a:hover {
-            background-color: #f0f0f0;
-          }
-        }
-
-        li {
           position: relative;
           padding: 5px 0;
           border-radius: 5px;

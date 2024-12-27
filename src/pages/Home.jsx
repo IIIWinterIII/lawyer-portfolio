@@ -49,7 +49,7 @@ function Home() {
 
         <div className="img-block">
           <img
-            src="./assets/images/lawyer.png"
+            src={`${process.env.PUBLIC_URL}/assets/images/lawyer.png`}
             alt="lawyer"
             className="hero-img"
           />
@@ -96,7 +96,7 @@ function Home() {
         </div>
         <div className="img-block">
           <img
-            src="./assets/images/bearded-man-suit-posing-with-crossed-arms.jpg"
+            src={`${process.env.PUBLIC_URL}/assets/images/bearded-man-suit-posing-with-crossed-arms.jpg`}
             alt="men-in-black"
             className="men-img"
           />

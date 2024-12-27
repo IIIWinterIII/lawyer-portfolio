@@ -33,7 +33,7 @@ const About = () => {
       <div className="left-and-right">
         <div className="left">
           <img
-            src="./assets/images/lawyer.png"
+            src={`${process.env.PUBLIC_URL}/assets/images/lawyer.png`}
             alt="lawyer"
             className="img-lawyer"
           />
