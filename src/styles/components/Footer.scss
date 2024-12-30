@@ -1,6 +1,6 @@
-// * {
-//   border: 1px solid greenyellow;
-// }
+* {
+  // border: 1px solid greenyellow;
+}
 
 @mixin flex-center-center {
   display: flex;
@@ -23,8 +23,23 @@ footer {
   color: white;
 
   .left-logo-message {
-    .logo {
-      font-size: 3em;
+    .header-logo {
+      @include flex-center-center;
+      flex-direction: column;
+      margin: 10px;
+
+     
+
+      .icon-logo {
+        font-size: 2em;
+      }
+
+      .name-lawyer-in-logo {
+        font-size: 2em;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        // padding-top: 10px;
+        // margin-left: 5px;
+      }
     }
 
     .box-section {

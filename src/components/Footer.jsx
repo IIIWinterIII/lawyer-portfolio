@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/components/Footer.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faPhone, faScaleBalanced } from "@fortawesome/free-solid-svg-icons";
 import {
   faTelegram,
   faVk,
@@ -12,7 +12,10 @@ function Footer() {
   return (
     <footer>
       <div className="left-logo-message">
-        <h1 className="logo">Logo</h1>
+        <div className="header-logo">
+          <FontAwesomeIcon icon={faScaleBalanced} className="icon-logo" />
+          <p className="name-lawyer-in-logo">Hussein</p>
+        </div>
         <div className="box-section">
           <a href="-">
             <FontAwesomeIcon icon={faWhatsapp} className="icon w" />

@@ -83,11 +83,17 @@
         text-decoration: none;
         color: black;
         margin: 10px;
+        transition: color 0.3s ease;
+
 
         .icon {
           color: blue;
           font-size: 1.1em;
           margin-right: 10px;
+        }
+
+        &:hover {
+          color: blue;
         }
       }
 
