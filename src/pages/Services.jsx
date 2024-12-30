@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
 import "../styles/pages/Services.scss";
+
 import { Link } from "react-router-dom";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComments } from "@fortawesome/free-regular-svg-icons";
 import {
@@ -11,7 +14,41 @@ import {
 import ServicesBox from "../components/ServicesBox.jsx";
 import ContactForm from "../components/ContactForm";
 
+import fetchDataFromSheet from "../GoogleSheetsAPI.js";
+
+const iconMap = [faComments, faFileSignature, faGavel, faShieldAlt];
+
 function Services() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetchDataFromSheet("Лист2!C2:C14").then((values) => {
+      if (values) {
+        const mainHeader = values[0]; // Заголовок главной страницы
+        const heroSubheader = values[1]; // Подзаголовок героевого блока
+        const contactDescription = values[2]; // Описание в блоке контактов
+        const contactButtonText = values[3]; // Текст кнопки в блоке контактов
+        const serviceHeadings = values[4]; // Подзаголовки списка услуг
+        const serviceDescriptions = values.slice(5, 9); // Описания услуг
+        
+
+        setData({
+          mainHeader,
+          heroSubheader,
+          contactDescription,
+          contactButtonText,
+          serviceHeadings,
+          serviceDescriptions,
+        });
+      }
+    });
+  }, []);
+
+  // console.log(data.serviceIcons.map(item => item));
+
+  if (!data) {
+    return <div>Загрузка данных...</div>;
+  }
   return (
     <section className="services-container">
       <div className="breadcrumbs">
@@ -26,19 +63,13 @@ function Services() {
       <div className="hero-serv">
         <div className="body-hero">
           <div className="text-hero">
-            <h1>Услуги юриста</h1>
-            <p>
-              Предоставляю профессиональные юридические услуги для решения ваших
-              правовых вопросов.
-            </p>
+            <h1>{data.mainHeader}</h1>
+            <p>{data.heroSubheader}</p>
           </div>
           <div className="contact-block">
-            <p className="text-contact">
-              Помогу решить любые правовые вопросы. Оставьте заявку для
-              консультации.
-            </p>
+            <p className="text-contact">{data.contactDescription}</p>
             <button className="btn-contact">
-              <span>Оставить заявку</span>
+              <span>{data.contactButtonText}</span>
             </button>
           </div>
         </div>
@@ -47,47 +78,15 @@ function Services() {
       {/* Services list */}
       <div className="service-list">
         <ul>
-          <li>
-            <h2>
-              <FontAwesomeIcon className="icon" icon={faComments} />
-              Юридические консультации
-            </h2>
-            <p>
-              Консультации по различным правовым вопросам. Помогу вам
-              разобраться в юридических тонкостях и подскажу оптимальные пути
-              решения.
-            </p>
-          </li>
-          <li>
-            <h2>
-              <FontAwesomeIcon className="icon" icon={faFileSignature} />
-              Составление договоров и документов
-            </h2>
-            <p>
-              Готовлю и проверяю юридические документы, такие как договоры,
-              заявления, и другие официальные бумаги.
-            </p>
-          </li>
-          <li>
-            <h2>
-              <FontAwesomeIcon className="icon" icon={faGavel} />
-              Представительство в суде
-            </h2>
-            <p>
-              Представляю интересы клиентов в судах различной инстанции.
-              Обеспечиваю высококачественную защиту.
-            </p>
-          </li>
-          <li>
-            <h2>
-              <FontAwesomeIcon className="icon" icon={faShieldAlt} />
-              Защита прав потребителей
-            </h2>
-            <p>
-              Помогу вам отстоять свои права в случае нарушения условий
-              договора, некачественного товара или услуги.
-            </p>
-          </li>
+          {data.serviceHeadings[0].split("\n").map((item, index) => (
+            <li key={index}>
+              <h2>
+                <FontAwesomeIcon className="icon" icon={iconMap[index]} />
+                {item}
+              </h2>
+              <p>{data.serviceDescriptions[index]}</p>
+            </li>
+          ))}
         </ul>
       </div>
 

@@ -1,6 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import "../styles/components/Header.scss";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import routes from "../reutes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,6 +11,8 @@ import {
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
+  const {pathname} = useLocation()
+  console.log(pathname);
   return (
     <header>
       {/* top */}
@@ -49,8 +51,8 @@ function Header() {
         <nav className="navigation">
           <ul>
             {routes.map(({ path, name }, index) => (
-              <li key={index}>
-                <Link to={path} className="link">
+              <li key={index} >
+                <Link to={path} className={`link ${pathname === path ? "active" : ''}`}>
                   <span>{name}</span>
                 </Link>
               </li>

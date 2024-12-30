@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import useScrollObserver from "../hooks/useScrollObserver.js";
 import { Link } from "react-router-dom";
 import "../styles/pages/Home.scss";
@@ -13,43 +13,85 @@ import {
 import ContactForm from "../components/ContactForm";
 import ServicesBox from "../components/ServicesBox";
 
+import fetchDataFromSheet from "../GoogleSheetsAPI.js";
+ 
 function Home() {
+  const [data, setData] = useState(null);
+
   useScrollObserver();
+
+  useEffect(() => {
+    fetchDataFromSheet("Лист1!C2:C17").then((values) => {
+      if (values) {
+        const headers = values[0]; // Заголовки
+        const subheaders = values[1]; // Подзаголовки
+        const stats = values.slice(2, 5); // Статистика
+        const image = values[5]; // Изображение
+        const sectionHeader = values[6]; // Заголовок блока
+        const infoText1 = values[7]; // Первый текст
+        const infoText2 = values[8]; // Второй текст
+        const infoText3 = values[9]; // Третий текст
+        const listDescription = values[10]; // Описание списка
+        const listOffer = values[11]; // Список предложений
+        const infoText4 = values[12]; // Четвёртый текст
+        const image2 = values[13]; // Четвёртый текст
+        const servicesSectionHeading = values[14]; // Заголовок секции услуг
+        const textButtomServices = values[15]; // Заголовок секции услуг
+        setData({
+          headers,
+          subheaders,
+          stats,
+          image,
+          sectionHeader,
+          infoText1,
+          infoText2,
+          infoText3,
+          infoText4,
+          listDescription,
+          listOffer,
+          image2,
+          servicesSectionHeading,
+          textButtomServices,
+        });
+      }
+    });
+  }, []);
+  if (!data) {
+    return <div>Загрузка данных...</div>;
+  }
 
   return (
     <section className="home-container">
       <div className="hero">
         <div className="hero-content">
           <div className="hero-text-seсtion">
-            <h1 className="hero-title">
-              Юридическая помощь для граждан и бизнеса
-            </h1>
+            <h1 className="hero-title">{data.headers}</h1>
             <ul>
-              <li>Сэкономим ваше время и средства.</li>
-              <li>Обеспечим получение всего, что вам положено по закону.</li>
-              <li>Защитим ваши интересы в любых обстоятельствах.</li>
+              {data.subheaders[0].split("\n").map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
             </ul>
           </div>
 
           <div className="stats">
             <p className="stats-item">
               <FontAwesomeIcon icon={faCheck} className="stats-icon" />
-              100% качества
+              {data.stats[0]}
             </p>
             <p className="stats-item">
               <FontAwesomeIcon icon={faLock} className="stats-icon" />
-              Защита клиентов
+              {data.stats[1]}
             </p>
             <p className="stats-item">
               <FontAwesomeIcon icon={faThumbsUp} className="stats-icon" />
-              97% довольных клиентов
+              {data.stats[2]}
             </p>
           </div>
         </div>
 
         <div className="img-block">
           <img
-            src={`${process.env.PUBLIC_URL}/assets/images/lawyer.png`}
+            src={`${process.env.PUBLIC_URL}${data.image}`}
             alt="lawyer"
             className="hero-img"
           />
@@ -59,44 +101,23 @@ function Home() {
       {/* text recomendation */}
       <div className="info-with-image">
         <div className="text-block">
-          <h1 className="hidden scroll-element">
-            Юридическая поддержка – залог успешного решения ваших вопросов и
-            избежания неприятностей.
-          </h1>
-          <p className="hidden scroll-element">
-            Правовые нормы постоянно обновляются, а судебная практика нередко
-            бывает противоречивой. Без специального образования разобраться в
-            этих нюансах сложно, поэтому помощь квалифицированного юриста
-            становится необходимой при возникновении правовых вопросов.
-          </p>
-          <p className="hidden scroll-element">
-            Наша компания – это команда опытных специалистов, готовых оказать
-            вам поддержку в таких областях права, как гражданское, семейное,
-            трудовое, наследственное и жилищное. Мы понимаем, что каждая
-            ситуация уникальна, поэтому разрабатываем индивидуальный план
-            действий, четко определяя, какие услуги вам понадобятся.
-          </p>
-          <p className="hidden scroll-element">
-            Мы тщательно анализируем вашу ситуацию, предлагаем оптимальные
-            решения и защищаем ваши права и интересы.
-          </p>
+          <h1 className="hidden scroll-element">{data.sectionHeader}</h1>
+          <p className="hidden scroll-element">{data.infoText1}</p>
+          <p className="hidden scroll-element">{data.infoText2}</p>
+          <p className="hidden scroll-element">{data.infoText3}</p>
           <section className="hidden scroll-element">
-            <p>Обратившись к нам, вы получите:</p>
+            <p>{data.listDescription}</p>
             <ul>
-              <li>Компетентную юридическую консультацию.</li>
-              <li>Подготовку и оформление правовых документов.</li>
-              <li>Представление ваших интересов в суде и других органах.</li>
-              <li>Контроль за выполнением судебных решений.</li>
+              {data.listOffer[0].split("\n").map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
             </ul>
           </section>
-          <p className="hidden scroll-element">
-            Не оставляйте свои вопросы без решения. Доверьтесь нам, и мы поможем
-            вам эффективно справиться с любой правовой задачей.
-          </p>
+          <p className="hidden scroll-element">{data.infoText4}</p>
         </div>
         <div className="img-block">
           <img
-            src={`${process.env.PUBLIC_URL}/assets/images/bearded-man-suit-posing-with-crossed-arms.jpg`}
+            src={`${process.env.PUBLIC_URL}${data.image2}`}
             alt="men-in-black"
             className="men-img"
           />
@@ -107,12 +128,12 @@ function Home() {
       <div className="services-block">
         <div className="block-title-sevices">
           <p className="p-icon">
-            <FontAwesomeIcon icon={faMinus} className="minus-icon" /> Наши
-            услуги
+            <FontAwesomeIcon icon={faMinus} className="minus-icon" />{" "}
+            {data.servicesSectionHeading[0]}
           </p>
           <Link to="/services" className="a-more-ser">
             <span>
-              Все услуги{" "}
+              {data.textButtomServices[0]}{" "}
               <FontAwesomeIcon
                 icon={faAngleDoubleRight}
                 className="arrows-icon"
