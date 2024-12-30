@@ -8,7 +8,7 @@ import {
   faWhatsapp,
   faVk,
 } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faPhone, faScaleBalanced } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
   const {pathname} = useLocation()
@@ -17,7 +17,11 @@ function Header() {
     <header>
       {/* top */}
       <div className="header-top">
-        <h1 className="header-logo">Logo</h1>
+        <div className="header-logo">
+<FontAwesomeIcon icon={faScaleBalanced} className="icon-logo" />
+<p className="name-lawyer-in-logo">Hussein</p>
+
+        </div>
 
         <div className="section-btn">
           {/* text-box */}
